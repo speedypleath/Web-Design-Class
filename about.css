@@ -1,0 +1,55 @@
+article{
+	margin-top: 60px;
+	padding: 0px;
+	border-color: white;
+	background-color: black;
+	display: flex;
+}
+.left{
+	width:50%;
+	min-width:450px;
+	min-width:450px;
+}
+.right{
+	width:50%;
+	margin: 25px;
+	
+}
+.left img{
+	width: 100%;
+	position: relative;
+	min-height:100%;
+}
+.right h1{
+	font-family: gotham;
+	color:white;
+}
+.right h4{
+	font-family: gotham;
+	color:white;
+	display:inline-block;
+}
+
+.p{
+	display:inline-block;
+	border-color: green;
+	margin-right:25%;
+	margin-bottom:0px;
+}
+span{
+	font-family: gotham;
+	color:white;
+	font-size:1.3em;
+}
+section{
+	margin-left:25%;
+	margin-right:25%;
+	padding: 0px;
+	background-color: rgba(0,0,0,0.8);
+}
+p{
+	text-align:justify;
+	color:white;
+	font-family: gotham;
+	font-size:1.3em;
+}
