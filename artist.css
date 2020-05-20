@@ -1,7 +1,13 @@
 
-a {
-  color: white;
+body{
+	font-family: sans-serif;
 }
+a{
+	color: gold;
+	text-decoration: none;
+	font-weight: bold;
+}
+
 iframe{
 	width:100%
 }
@@ -46,6 +52,7 @@ div.frame{
 	border: solid;
 	border-style: outset;
 	margin:10px;
+	cursor: pointer;
 }
 img{
 	max-width:100%;
@@ -57,7 +64,7 @@ img{
 	left: 0;
 	right: 0;
 	height: 33%;
-	background: rgba(31, 24, 24, 0);
+	background: rgba(31, 24, 24);
 	opacity: 0;
 	transition: .5s;
 }
@@ -65,8 +72,8 @@ img{
 	background: rgba(31, 24, 24, 0.8);
 	opacity: 1;
 }
+
 div p{
-	font-weight: bold;
 	text-align: center;
 	color: white;
 
@@ -75,12 +82,15 @@ h1{
 	font-weight: bold;
 	text-align: center;
 	color: white;
-	font-family:monospace;
 }
 ol,ol li a{
-	color: white;
+	color: gold;
+	font-weight: bold;
 	text-align: left;
-	font-family:monospace;
+
+}
+ol li{
+	margin: 1em 0;
 }
 article{
 	position: fixed;
@@ -91,7 +101,22 @@ article{
 	z-index: 0;
 	border-radius: 25px;
 	background-color: rgba(73, 73, 73, 0.8);
+	visibility: hidden;
+	opacity: 0;
+	transition: .5s;
+}
+article div{
+	transition: .5s;
+}
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 p.info{
 	text-align: left;
+}
+p.test{
+	visibility: hidden;
 }
