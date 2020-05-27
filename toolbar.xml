@@ -1,0 +1,52 @@
+<toolbar>
+	<opt>
+        <ref>main.html</ref>
+        <img>img/icon.png</img>
+    </opt>
+    <opt>
+        <ref>about.html</ref>
+        <info>Despre label</info>
+    </opt>
+    <opt>
+        <info>Artisti</info>
+        <dropdown>
+            <opt>
+                <ref>inana.html</ref>
+                <info>Inana</info>
+            </opt>
+            <opt>
+                <ref>matteo.html</ref>
+                <info>Matteo Islandezu</info>
+            </opt>
+            <opt>
+                <ref>ion.html</ref>
+                <info>Ion din Dorobanți</info>
+            </opt>
+        </dropdown>
+    </opt>
+        <opt>
+        <info>Conexiuni externe</info>
+        <dropdown>
+            <opt>
+                <ref>https://www.facebook.com/futurenuggets</ref>
+                <info>Facebook</info>
+            </opt>
+            <opt>
+                <ref>https://soundcloud.com/future-nuggets</ref>
+                <info>Soundcloud</info>
+            </opt>
+            <opt>
+                <ref>https://www.discogs.com/label/523462-Future-Nuggets</ref>
+                <info>Discog</info>
+            </opt>
+                        <opt>
+                <ref>https://www.youtube.com/channel/UCdcDCQ4cUs22gSCjCRNikuw</ref>
+                <info>Youtube</info>
+            </opt>
+                        <opt>
+                <ref>https://futurenuggets.bandcamp.com/</ref>
+                <info>Bandcamp</info>
+            </opt>
+        </dropdown>
+    </opt>
+</toolbar>

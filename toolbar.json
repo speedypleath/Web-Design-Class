@@ -1,0 +1,58 @@
+[
+    {
+       "ref": "main.html",
+       "img": "http://localhost:8080/img/icon.png",
+       "class": "icon"
+    },
+    {
+       "ref": "about.html",
+       "info": "Despre label"
+    },
+    {
+       "info": "Artisti",
+       "dropdown": [
+          {
+             "ref": "inana.html",
+             "info": "Inana"
+          },
+          {
+             "ref": "matteo.html",
+             "info": "Matteo Islandezu"
+          },
+          {
+             "ref": "ion.html",
+             "info": "Ion din Dorobanți"
+          }
+       ]
+    },
+    {
+       "info": "Conexiuni externe",
+       "dropdown": [
+          {
+             "ref": "https://www.facebook.com/futurenuggets",
+             "info": "Facebook",
+             "target": "_blank"
+          },
+          {
+             "ref": "https://soundcloud.com/future-nuggets",
+             "info": "Soundcloud",
+             "target": "_blank"
+          },
+          {
+             "ref": "https://www.discogs.com/label/523462-Future-Nuggets",
+             "info": "Discog",
+             "target": "_blank"
+          },
+          {
+             "ref": "https://www.youtube.com/channel/UCdcDCQ4cUs22gSCjCRNikuw",
+             "info": "Youtube",
+             "target": "_blank"
+          },
+          {
+             "ref": "https://futurenuggets.bandcamp.com/",
+             "info": "Bandcamp",
+             "target": "_blank"
+          }
+       ]
+    }
+]

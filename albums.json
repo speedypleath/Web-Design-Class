@@ -1,0 +1,95 @@
+[
+    {
+        "inana": [
+            {
+                "name": "Sfârșit // Năduf",
+                "img": "http://localhost:8080/img/4.jpg",
+                "songs": [
+                    {
+                        "name": "Sfârșit",
+                        "href": "google.com"
+                    },
+                    {
+                        "name": "Năduf",
+                        "href": "google.com"
+                    }
+                ]
+            },
+            {
+                "name": "01 EP",
+                "img": "http://localhost:8080/img/a.jpg",
+                "songs": [
+                    {
+                        "name": "Anemia",
+                        "href": "google.com"
+                    },
+                    {
+                        "name": "Primejda",
+                        "href": "google.com"
+                    }
+                ]
+            },
+            {
+                "name": "Desfigurat + Sterp",
+                "songs": [
+                    {
+                        "name": "Desfigurat"
+                    },
+                    {
+                        "name": "Sterp"
+                    }
+                ],
+                "img": "http://localhost:8080/img/3.jpg"
+            },
+            {
+                "name": "Inana x Sarra",
+                "songs": [
+                    {
+                        "name": "Jupiter"
+                    },
+                    {
+                        "name": "Paradiso"
+                    }
+                ],
+                "img": "http://localhost:8080/img/5.jpg"
+            },
+            {
+                "name": "Armageddon",
+                "songs": [
+                    {
+                        "name": "A"
+                    },
+                    {
+                        "name": "r"
+                    },
+                    {
+                        "name": "m"
+                    },
+                    {
+                        "name": "a"
+                    },
+                    {
+                        "name": "g"
+                    },
+                    {
+                        "name": "e"
+                    },
+                    {
+                        "name": "d"
+                    },
+                    {
+                        "name": "d"
+                    },
+                    {
+                        "name": "o"
+                    },
+                    {
+                        "name": "n"
+                    },
+                    {}
+                ],
+                "img": "http://localhost:8080/img/2.jpg"
+            }
+        ]
+    }
+]
