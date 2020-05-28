@@ -1,0 +1,73 @@
+doctype html
+html
+    head
+        title #{titlu}
+        link(rel="stylesheet" type="text/css" href="http://localhost:8080/css/artist.css")
+        link(rel="stylesheet" type="text/css" href="http://localhost:8080/css/toolbar.css")
+        link(rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+        script(src = "http://localhost:8080/js/artist.js")
+    body
+        nav
+            ul
+                each elem in toolbar
+                    li
+                        a(href=elem.ref)= elem.info
+                            if elem.img
+                                img(src = elem.img class = elem.class)
+                            if(elem.dropdown)
+                                ul(class = "dropdown")
+                                    each i in elem.dropdown
+                                        li
+                                            if i.target
+                                                a(href= i.ref, target = i.target)= i.info
+                                            else
+                                                a(href= i.ref)= i.info
+                li(class = "search-container")
+                    input(type="text" id="input" autocomplete="off")
+                    button
+                        i(class="fa fa-search")
+                    ul(id="results")
+                        each elem in toolbar
+                            if elem.ref
+                                if !elem.img
+                                    li
+                                        a(href=elem.ref)= elem.info
+                            if elem.dropdown
+                                each i in elem.dropdown
+                                    li
+                                        if i.target
+                                            a(href= i.ref, target = i.target)= i.info
+                                        else
+                                            a(href= i.ref)= i.info
+                li(class = "f-container")
+                    button(class = "openbutton") Login
+        div(id="id01" class="modal")
+            form(id="login" class="modal-content animate" name="myForm" action="/api/users")
+                div(class="container")
+                    label(for="uname")
+                        b Username
+                    input(type="text" placeholder="Enter Username" name="name" class="aux")
+                    label(for="psw")
+                        b Password
+                    input(type="password" placeholder="Enter Password" name="pass")
+                    button(type="submit" class="loginbtn") Login
+                div(class="container" style="background-color:#f1f1f1")
+                    button(type="button" class="cancelbtn") Cancel
+        section
+            div(class="st")
+                each song in albums
+                    label(for=song.name)
+                        input(type="radio" name="album" id=song.name)
+                        div(class="frame")
+                            img(src=song.img)
+                            div(class="overlay")
+                                p= song.name
+                label(for='new')
+                    input(type="button" name="newalbum" id="new")
+                    div(class="frame" id = "add")
+                        img(src="http://localhost:8080/img/add.jpeg")
+        article(id = "art")
+            h1(id = "p1")
+            ol(id = "album")
+        div(class="sc")
+            iframe(name="iframe_a" frameborder="0" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/566606466&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true")
