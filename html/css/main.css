@@ -1,0 +1,47 @@
+body{
+	background: url("../img/inana_-_sterp.gif") no-repeat center fixed;
+	background-size: cover;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+nav {
+    font-family: monospace;
+}
+
+ul {
+  background-color: #111;
+    position: fixed;
+    bottom: 8%;
+    width: 100%;
+    padding-left: 0px;
+}
+
+li {
+    color: #fff;
+	background-color: #111;
+    display: block;
+	float: right;
+    position: relative;
+	padding: 25px 30px;
+}
+ 
+li:hover {
+    background-color:#346599;
+}
+
+ul li ul {
+	position: absolute;
+	margin-bottom: 60px;
+	display: none;
+}
+
+ul li:hover ul{
+  display: block;
+}
+
+ul li ul li {
+  width: 100%;
+}
