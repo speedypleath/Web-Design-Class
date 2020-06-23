@@ -52,13 +52,13 @@ String.prototype.replaceAll = function(search, replacement) {
 router.post('/:artist',(req,res) => {
     if(req.files)
         req.files.img.mv('./html/img/' + req.files.img.name);
-    ok = 1
+    var ok
     var aux = album[artists][normal(req.params.artist)];
     for(x in aux)
         if(normal(aux[x].name) == normal(req.body.album))
-        ok = 0
+        ok = x;
     songs = {}
-    if(ok){
+    if(!ok){
         var nou = {
             name: req.body.album,
             songs: [],
@@ -79,8 +79,21 @@ router.post('/:artist',(req,res) => {
             }
         });
     }
-    else
-        res.send("ALBUMUL EXISTA DEJA !!");  
+    else{
+        for(i in req.body.songs){
+            song = {'name':req.body.songs[i]};
+            console.log(album[artists][normal(req.params.artist)][ok],ok);
+            album[artists][normal(req.params.artist)][ok].songs.push(song);
+        }
+        console.log(album)
+        fs.writeFile('albums.json',JSON.stringify(album, null, 4),function(err) {
+            if(err) {
+                console.log(err);
+            } else {
+                console.log("The file was saved!");
+            }
+        });
+    }
 });
 
 module.exports = router;
