@@ -1,6 +1,8 @@
 
 body{
 	font-family: sans-serif;
+	background: no-repeat center fixed;
+	background-size: cover;
 }
 a{
 	color: gold;

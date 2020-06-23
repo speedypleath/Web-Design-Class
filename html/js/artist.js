@@ -1,12 +1,15 @@
 var res = false;
 window.onload=function() {
+background();
 var xhr = new XMLHttpRequest();
-xhr.open('GET','http://localhost:8080/logged',true);
+xhr.open('GET','http://localhost:8080/api/users/logged',true);
 xhr.onreadystatechange = function(){
 	if(this.readyState == 4 && this.status == 200){
 			res = xhr.responseText;
-			if(res)
+			if(res != "false"){
 				modify();
+				inactivity(); 
+			}
 	}
 }
 xhr.send();
@@ -28,6 +31,40 @@ x.addEventListener('keyup',updateResults);
 x.addEventListener('keypress',exception);
 var x = document.getElementById('login');
 x.addEventListener('submit',form);
+}
+var time;
+var inactivity = function () {
+    window.onload = reset;
+    document.onmousemove = reset;
+    document.onkeypress = reset;
+};
+function logout() {
+	alert("You are now logged out.")
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET','http://localhost:8080/api/users/log/out',true);
+	xhr.send();
+	window.location.reload();
+}
+function reset() {
+	clearTimeout(time);
+	time = setTimeout(logout, 3000)
+	// 1000 milliseconds = 1 second
+}
+function background()
+{
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET','http://localhost:8080/api/albums',true);
+	xhr.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+			res = xhr.responseText;
+			var res = JSON.parse(xhr.responseText);
+			for(i = 0;i<res.length;i++){
+				if(res[i][normal(document.title)])
+					document.body.style.backgroundImage = `url(${res[i]["background"]})`;
+			}
+		}
+	}
+	xhr.send();
 }
 function modify(){
 	x = document.getElementsByClassName("openbutton")[0];
@@ -84,7 +121,8 @@ function normal(a){
 	a = a.replaceAll('ș','s');
 	a = a.replaceAll('ă','a');
     a = a.replaceAll(' ','');
-    a = a.replaceAll('/','');
+	a = a.replaceAll('/','');
+	a = a.toLowerCase();
 	return a;
 }
 String.prototype.replaceAll = function(search, replacement) {
@@ -147,6 +185,7 @@ function displayLogin(){
 		else
 			x.style.display='block';
 }
+var tries = 0
 function form(){
 	elem = this.elements;
 	var ok = 0;
@@ -164,18 +203,20 @@ function form(){
 			}
 			if(res.pass == elem.pass.value){
 				var a = new XMLHttpRequest();
-				a.open('POST','http://localhost:8080/users/',true);
+				a.open('POST','http://localhost:8080/api/users/',true);
 				a.setRequestHeader("Content-Type", "application/json");
 				a.send(JSON.stringify(res));
 				window.location.reload();
 			}
+			else if(tries<4)
+				alert(`wrong pass, ${5 - ++tries} more tries`);
 			else
-				alert("wrong pass");
+				wait(5000);
 		}
 		else if(this.readyState == 4 && this.status == 400)
 			alert("wrong user")
 	}
-	xhr.send('truu');
+	xhr.send();
 }
 function newSong(song)
 {
@@ -197,3 +238,15 @@ function newAlbum(album)
 	}
 	return ol.innerHTML;
 }
+function wait(ms){
+	document.getElementsByClassName("loginbtn")[0].disabled = true;
+    setTimeout(function() {
+        document.getElementsByClassName("loginbtn")[0].disabled = false;
+    }, 5000);
+	var start = new Date().getTime();
+	var end = start;
+	while(end < start + ms) {
+	  end = new Date().getTime();
+   }
+   tries = 0
+ }
