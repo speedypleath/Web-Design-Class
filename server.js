@@ -13,10 +13,9 @@ const album = require('./albums.json');
 const toolbar = require('./toolbar.json');
 const http = require('http');
 var fileupload = require("express-fileupload");
-
-
+const bodyParser = require('body-parser')
 app.use(fileupload());
-
+app.use(bodyParser.json())
 
 app.use(express.static(path.join(__dirname,'html'),{index: 'main.html'}));
 
@@ -58,18 +57,7 @@ app.use('/api/albums',require('./routes/api/album'));
 app.use('/api/users',require('./routes/api/users'));
 app.use('/artist',require('./routes/api/toolbar'));
 
-app.post('/users',(req,res) => {
-    req.session.on = true;
-    console.log("aici");
-    console.log(req.session);
-    res.json("da")
-});
-app.get('/logged',(req,res) => res.send(req.session.on));
 
-app.get('/restricted/test.html',(req,res) =>{
-    if(req.session.on)
-        res.sendFile(path.join(__dirname, '/restricted', 'test.html'));
-});
 //app.use('/api/toolbar',require('./routes/api/toolbar'));
 
 app.listen(PORT,()=>console.log('yay'));

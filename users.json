@@ -2,12 +2,12 @@
     {
     "name":"speedypleath",
     "pass":"lalalala",
-    "on": false
+    "admin": "true"
     }, 
     {
     "name":"costel",
     "pass":"lalalala",
-    "on": false 
+    "admin": "false"
     }
 ]
 }

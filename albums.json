@@ -57,39 +57,12 @@
                 "name": "Armageddon",
                 "songs": [
                     {
-                        "name": "A"
-                    },
-                    {
-                        "name": "r"
-                    },
-                    {
-                        "name": "m"
-                    },
-                    {
-                        "name": "a"
-                    },
-                    {
-                        "name": "g"
-                    },
-                    {
-                        "name": "e"
-                    },
-                    {
-                        "name": "d"
-                    },
-                    {
-                        "name": "d"
-                    },
-                    {
-                        "name": "o"
-                    },
-                    {
-                        "name": "n"
-                    },
-                    {}
+                        "name": "Armageddon"
+                    }
                 ],
                 "img": "http://localhost:8080/img/2.jpg"
             }
-        ]
+        ],
+        "background": "http://localhost:8080/img/inana.png"
     }
 ]

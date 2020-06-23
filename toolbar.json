@@ -12,15 +12,15 @@
        "info": "Artisti",
        "dropdown": [
           {
-             "ref": "inana.html",
+             "ref": "inana",
              "info": "Inana"
           },
           {
-             "ref": "matteo.html",
+             "ref": "matteoislandezu",
              "info": "Matteo Islandezu"
           },
           {
-             "ref": "ion.html",
+             "ref": "iondindorobanti",
              "info": "Ion din Dorobanți"
           }
        ]
