@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Artist</title>
+<script src="../../../js/addArtist.js"></script> 
+<link rel="stylesheet" type="text/css" href="../../../css/test.css">
+</head>
+<body>
+
+<div id="id01" class="modal">
+  
+  <form id="login" class="modal-content animate" name="myForm" action="/api/users">
+
+
+    <div class="container">
+      <label for="artist"><b>Artist</b></label>
+      <input type="text" placeholder="Enter Artist" name="artist" class="aux">
+      <label for="album"><b>Descriere</b></label>
+      <input type="text" placeholder="Enter Album" name="descriere" class="aux">
+    <label for="img">Select image:</label>
+    <input type="file" id="img" name="img" accept="image/*">
+        
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+
+      <button type="submit" class="submit">Submit</button>
+    <button type="button" class="cancelbtn">Cancel</button>
+  </div>
+  </form>
+</div>
+</body>
+</html>

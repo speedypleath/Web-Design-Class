@@ -47,13 +47,22 @@ router.post('/',(req,res) => {
     console.log(req.session);
     res.json(req.body);
 });
-router.get('/restricted/test',(req,res) =>{
+router.get('/restricted/addalbum',(req,res) =>{
     console.log(req.session.on);
     if(req.session.admin == "true")
-        res.sendFile(path.join(__dirname, '../../restricted/test.html'));
+        res.sendFile(path.join(__dirname, '../../restricted/addAlbum.html'));
     else{
-    res.status(400);
-    res.send("nu ai acces")
+    res.status(403);
+    res.send("restricted acces")
+    }
+});
+router.get('/restricted/addartist',(req,res) =>{
+    console.log(req.session.on);
+    if(req.session.admin == "true")
+        res.sendFile(path.join(__dirname, '../../restricted/addArtist.html'));
+    else{
+    res.status(403);
+    res.send("restricted acces")
     }
 });
 router.get('/log/out',(req,res)=>{

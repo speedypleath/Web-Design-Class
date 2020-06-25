@@ -73,8 +73,14 @@ function modify(){
 	x = document.getElementsByTagName('ul')[0];
 	li = document.createElement('li');
 	a = document.createElement('a');
-	a.href = "http://localhost:8080/test.html";
-	a.innerHTML = "test";
+	a.href = "http://localhost:8080/api/users/restricted/addalbum";
+	a.innerHTML = "Add Album";
+	li.appendChild(a);
+	x.appendChild(li);
+	li = document.createElement('li');
+	a = document.createElement('a');
+	a.href = "http://localhost:8080/api/users/restricted/addartist";
+	a.innerHTML = "Add Artist";
 	li.appendChild(a);
 	x.appendChild(li);
 }
@@ -206,10 +212,15 @@ function form(){
 			if(res.pass == elem.pass.value){
 				getIp(res);
 			}
-			else if(tries<4)
-				alert(`wrong pass, ${5 - ++tries} more tries`);
-			else
-				wait(5000);
+			else if(tries<4){
+				var x = document.getElementById('tries');
+				x.innerHTML =`wrong pass, ${5 - ++tries} more tries`;
+			}
+			else{
+				var x = document.getElementById('tries');
+				x.innerHTML =`wrong pass, wait 10 seconds`;
+				wait();
+			}
 		}
 		else if(this.readyState == 4 && this.status == 400)
 			alert("wrong user")
@@ -258,15 +269,12 @@ function newAlbum(album)
 	}
 	return ol.innerHTML;
 }
-function wait(ms){
+function wait(){
 	document.getElementsByClassName("loginbtn")[0].disabled = true;
     setTimeout(function() {
-        document.getElementsByClassName("loginbtn")[0].disabled = false;
-    }, 5000);
-	var start = new Date().getTime();
-	var end = start;
-	while(end < start + ms) {
-	  end = new Date().getTime();
-   }
+		document.getElementsByClassName("loginbtn")[0].disabled = false;
+		var x = document.getElementById('tries');
+		x.innerHTML =``;
+	}, 10000);
    tries = 0
  }

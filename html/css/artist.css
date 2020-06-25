@@ -105,6 +105,10 @@ ol,ol li a{
 ol li{
 	margin: 1em 0;
 }
+#tries{
+	color: black;
+	text-align: left;
+}
 article{
 	position: fixed;
 	top: 60px;

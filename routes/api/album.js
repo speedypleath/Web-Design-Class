@@ -48,7 +48,32 @@ String.prototype.replaceAll = function(search, replacement) {
     var target = this;
     return target.split(search).join(replacement);
 };
-
+router.post('/new/:artist',(req,res) => {
+    if(req.files)
+        req.files.img.mv('./html/img/' + req.files.img.name);
+    if(check(normal(req.params.artist)))
+        return
+    var nou = {
+        [normal(req.params.artist)]: [],
+        background: "http://localhost:8080/img/"+req.files.img.name,
+        description: req.body.description
+    }
+    album.push(nou)
+    fs.writeFile('albums.json',JSON.stringify(album, null, 4),function(err) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("The file was saved!");
+        }
+    });
+    res.send("ok");
+});
+function check(artist)
+{
+    for(x in album)
+        if(artist in album[x])
+            return true;
+}
 router.post('/:artist',(req,res) => {
     if(req.files)
         req.files.img.mv('./html/img/' + req.files.img.name);
@@ -95,5 +120,4 @@ router.post('/:artist',(req,res) => {
         });
     }
 });
-
 module.exports = router;
