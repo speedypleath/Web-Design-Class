@@ -1,6 +1,6 @@
 [
     {
-       "ref": "main.html",
+       "ref": "http://localhost:8080/",
        "img": "http://localhost:8080/img/icon.png",
        "class": "icon"
     },

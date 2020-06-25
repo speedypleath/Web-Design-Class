@@ -1,4 +1,4 @@
-var res = false;
+var logged = false;
 window.onload=function() {
 background();
 var xhr = new XMLHttpRequest();
@@ -6,9 +6,10 @@ xhr.open('GET','http://localhost:8080/api/users/logged',true);
 xhr.onreadystatechange = function(){
 	if(this.readyState == 4 && this.status == 200){
 			res = xhr.responseText;
-			if(res != "false"){
+			if(res != "false" && res){
 				modify();
-				inactivity(); 
+				inactivity();
+				logged = true;
 			}
 	}
 }
@@ -48,7 +49,6 @@ function logout() {
 function reset() {
 	clearTimeout(time);
 	time = setTimeout(logout, 3000)
-	// 1000 milliseconds = 1 second
 }
 function background()
 {
@@ -179,11 +179,13 @@ function cancel(){
 }
 function displayLogin(){
 	var x = document.getElementById('id01');
-	if(!res)
-		if (x.style.display=='block')
-			x.style.display='none';
-		else
-			x.style.display='block';
+	if(!logged)
+	if (x.style.display=='block')
+		x.style.display='none';
+	else
+		x.style.display='block';
+	else
+		logout();
 }
 var tries = 0
 function form(){
@@ -202,11 +204,7 @@ function form(){
 				return
 			}
 			if(res.pass == elem.pass.value){
-				var a = new XMLHttpRequest();
-				a.open('POST','http://localhost:8080/api/users/',true);
-				a.setRequestHeader("Content-Type", "application/json");
-				a.send(JSON.stringify(res));
-				window.location.reload();
+				getIp(res);
 			}
 			else if(tries<4)
 				alert(`wrong pass, ${5 - ++tries} more tries`);
@@ -218,6 +216,28 @@ function form(){
 	}
 	xhr.send();
 }
+function post(res,ip)
+{
+	alert(ip);
+	var a = new XMLHttpRequest();
+	a.open('POST','http://localhost:8080/api/users/',true);
+	a.setRequestHeader("Content-Type", "application/json");
+	a.send(JSON.stringify(res));
+	window.location.reload();
+}
+function getIp(res)
+{
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET','http://api.ipify.org/',true);
+	xhr.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+				ip = xhr.responseText;
+				post(res,ip);
+		}
+	}
+	xhr.send();
+}
+
 function newSong(song)
 {
 	var li = document.createElement("li");

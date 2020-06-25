@@ -4,7 +4,14 @@ const user = require('../../users.json');
 const fs = require('fs');
 const session = require('express-session');
 const path = require('path');
+const requestIp = require('request-ip');
+ 
+const ipMiddleware = function(req, res, next) {
+    const clientIp = requestIp.getClientIp(req); 
+    next();
+};
 router.get('/logged',(req,res) => res.send(req.session.on));
+router.get('/ip',(req,res) =>res.send(req.connection.remoteAddress));
 router.get('/',(req,res) => res.send(user));
 router.get('/:name',(req,res) => {
 

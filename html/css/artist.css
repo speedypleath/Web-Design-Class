@@ -9,7 +9,9 @@ a{
 	text-decoration: none;
 	font-weight: bold;
 }
-
+input{
+	display: inline-table;
+}
 iframe{
 	width:100%
 }
@@ -62,7 +64,7 @@ div.frame{
 	width:200px;
 	border: solid;
 	border-style: outset;
-	margin:10px;
+	margin:8px;
 	cursor: pointer;
 }
 img{
