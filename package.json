@@ -11,14 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "express-fileupload": "^1.1.7-alpha.3",
-    "express-session": "^1.17.1",
-    "moment": "^2.26.0",
-    "pug": "^3.0.0",
-    "request-ip": "^2.1.3"
+    "express": "",
+    "express-fileupload": "",
+    "express-session": "",
+    "moment": "",
+    "pug": "",
+    "request-ip": ""
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": ""
   }
 }
